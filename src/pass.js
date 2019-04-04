@@ -260,9 +260,10 @@ class Pass {
 
 		if (!dateParse) {
 			genericDebug(formatMessage("DATE_FORMAT_UNMATCH", "Expiration date"));
-		} else {
-			this._props.expirationDate = dateParse;
+			return this;
 		}
+
+		this._props.expirationDate = dateParse;
 
 		return this;
 	}
@@ -843,7 +844,6 @@ function generateStringFile(lang) {
 function assignLength(length, ...sources) {
 	return Object.assign({ length }, ...sources);
 }
-
 
 /**
  * Automatically generates barcodes for all the types given common info
